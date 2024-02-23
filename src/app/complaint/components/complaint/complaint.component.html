@@ -1,0 +1,53 @@
+<!-- <div class="" id="Top"> -->
+<!-- <div>
+  <div class="col-md-12 col-xs-12" >
+    <div class="card">
+      <div class="card-body">
+        <h5 style="font-size: 27px; color: lightseagreen;">
+          Thank You for reporting parking violation,  your complaint reference is {{ComplaintNo}}.
+        </h5>
+        
+      <p style="font-size:20px; line-height: 2;">
+        Please use this number for future inquires. If you would like to report another parking violation, click on Add New otherwise click the
+        close navigate back to DPW website.
+      </p>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-blue1 btn-labeled" (click)="AddNew()" name="AddNew">
+          <span class="btn-label">
+            <i class="glyphicon glyphicon-save"></i>
+          </span> 
+          Add New
+        </button> 
+        <button type="button" class="btn btn-blue1 btn-labeled" (click)="Close()" name="Close">
+            <span class="btn-label">
+              <i class="fa fa-times"></i>
+            </span> 
+            Close
+          </button> 
+      </div>
+    </div>
+    
+  </div>
+</div> -->
+
+<div class="cd-popup-container">
+  <h5>
+    Your complaint number is <br> 
+    <span class="text-primary">{{ComplaintNo}}</span><br/> 
+    If you entered a valid email address, you will receive a confirmation notice.  
+    Additional information about this complaint is available by calling (414) 286-CITY (2489).
+
+  </h5>
+  <br> 
+  <p> Please use this number for future inquires. If you would like to report another parking violation, click on Add New otherwise click on
+    close to leave the website.</p>
+  <ul class="cd-buttons">
+  <li>
+    <a (click)="AddNew()" name="AddNew" class="">Add New</a>
+  </li>
+  <li>
+    <a (click)="Close()" name="Close" class="">Close</a>
+  </li>
+  </ul>
+</div>

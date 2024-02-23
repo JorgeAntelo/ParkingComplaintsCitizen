@@ -1,0 +1,18 @@
+
+<section class="wrapper">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+            <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+    <app-header *ngIf="IsCitizen==1"></app-header>
+    <article>
+        <router-outlet></router-outlet>
+    </article>
+</section>
+<app-footer *ngIf="IsCitizen==1"></app-footer>
+<ng-template #template>
+    <div class="modal-body text-center">
+        <p>Latest version of this application is updated. Please contact support for additional information or if you have noticed
+            any issue. Thank You. </p>
+        <button type="button" class="btn btn-primary" (click)="confirm()">Close</button>
+    </div>
+</ng-template>
