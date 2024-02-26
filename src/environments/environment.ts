@@ -7,7 +7,8 @@ const versionFilePath = Global.WebUrl + 'version.json';
 export const environment = {
   production: false,
   versionCheckUrl: versionFilePath,
-  version: '1.0.58'
+  version: '1.0.58',
+  keyEncrypt: "4512631236589784"
 };
 
 /*
