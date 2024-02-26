@@ -37,30 +37,7 @@
                     Complaint No is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>
-              </div>
-            
-              <div class="form-group col-md-12 col-xs-12">
-                <mat-form-field class="example-full-width">
-                  <input type="text" matInput placeholder="Phone Number" formControlName="PhoneNumberFormControl" class="text-left" />
-                  <mat-icon matSuffix style="font-weight: 600">phone</mat-icon>
-                  <mat-error *ngIf="SearchForm.controls['PhoneNumberFormControl'].errors?.required && (SearchForm.controls['PhoneNumberFormControl'].dirty || SearchForm.controls['PhoneNumberFormControl'].touched)">
-                    Phone Number is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-              </div>
-             OR
-              <div class="form-group col-md-12 col-xs-12">
-                <mat-form-field class="example-full-width">
-                  <input type="email" matInput placeholder="Email" formControlName="EmailFormControl" class="text-left" />
-                  <mat-icon matSuffix style="font-weight: 600">email</mat-icon>
-                  <mat-error *ngIf="SearchForm.controls['EmailFormControl'].errors?.required && (SearchForm.controls['EmailFormControl'].dirty || SearchForm.controls['EmailFormControl'].touched)">
-                    Email is <strong>required</strong>
-                  </mat-error>
-                  <mat-error *ngIf="SearchForm.controls['EmailFormControl'].errors?.email && (SearchForm.controls['EmailFormControl'].dirty || SearchForm.controls['EmailFormControl'].touched)">
-                    Please enter a valid email address
-                  </mat-error>
-                </mat-form-field>
-              </div>
+              </div>   
             
               <!-- Verification code fields -->
               <div class="form-group col-md-12 col-xs-12" *ngIf="verificationCode!=''">

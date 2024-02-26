@@ -40,8 +40,6 @@ export class SearchComponent implements OnInit {
   private createForm() {
     this.SearchForm = new FormGroup({
       ComplaintNoFormControl: new FormControl('', [Validators.required]),
-      PhoneNumberFormControl: new FormControl('', [Validators.required]),
-      EmailFormControl: new FormControl('', [Validators.required, Validators.email]),
       VerificationCodeFormControl: new FormControl('')
     });
   }
@@ -141,7 +139,7 @@ export class SearchComponent implements OnInit {
       if (this.SearchForm.valid) {
         this.searchclicked++;
         const formData = this.SearchForm.value
-        this._dataService.get(Global.DLMS_API_URL + `api/Aban/validatePhoneEmailComplaintNo?complaintNo=${formData.ComplaintNoFormControl}&phone=${formData.PhoneNumberFormControl}&email=${formData.EmailFormControl}`)
+        this._dataService.get(Global.DLMS_API_URL + `api/Aban/validatePhoneEmailComplaintNo?complaintNo=${formData.ComplaintNoFormControl}`)
         .subscribe(items => {
           this.AbanList = items;
           this.indLoading = false;
