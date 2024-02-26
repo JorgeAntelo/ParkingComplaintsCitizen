@@ -142,15 +142,16 @@ export class SearchComponent implements OnInit {
         const formData = this.SearchForm.value
         this._dataService.get(Global.DLMS_API_URL + `api/Aban/SearchByOtpComplaintNo?ComplaintNo=${formData.ComplaintNoFormControl}`)
         .subscribe(items => {
-          if(items == null){
+          
+          const decodedData = decrypt(items.data);
+          const dataParsed = JSON.parse(decodedData);
+          
+          if(dataParsed == null){
             this.ErrorMsg = "No record found";
             setTimeout(() => {
               this.ErrorMsg = "";
             }, 3000);
           }
-
-          const decodedData = decrypt(items.data);
-          const dataParsed = JSON.parse(decodedData);
           
           this.AbanList = dataParsed;
           this.indLoading = false;
