@@ -139,7 +139,7 @@ export class SearchComponent implements OnInit {
       if (this.SearchForm.valid) {
         this.searchclicked++;
         const formData = this.SearchForm.value
-        this._dataService.get(Global.DLMS_API_URL + `api/Aban/validatePhoneEmailComplaintNo?complaintNo=${formData.ComplaintNoFormControl}`)
+        this._dataService.get(Global.DLMS_API_URL + `api/Aban/SearchByOtpComplaintNo?ComplaintNo=${formData.ComplaintNoFormControl}`)
         .subscribe(items => {
           this.AbanList = items;
           this.indLoading = false;
