@@ -6,13 +6,14 @@ import { Observable } from 'rxjs/Observable';
 import { Global } from '../../../shared/global';
 import { Router, ActivatedRoute, Params, ParamMap } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { decrypt } from 'src/app/utils/encrypt';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  AbanList = [];
+  AbanList: any = null;
   ErrorMsg: any;
   SuccessMsg: any;
   indLoading = false;
@@ -141,9 +142,19 @@ export class SearchComponent implements OnInit {
         const formData = this.SearchForm.value
         this._dataService.get(Global.DLMS_API_URL + `api/Aban/SearchByOtpComplaintNo?ComplaintNo=${formData.ComplaintNoFormControl}`)
         .subscribe(items => {
-          this.AbanList = items;
+          if(items == null){
+            this.ErrorMsg = "No record found";
+            setTimeout(() => {
+              this.ErrorMsg = "";
+            }, 3000);
+          }
+
+          const decodedData = decrypt(items.data);
+          const dataParsed = JSON.parse(decodedData);
+          
+          this.AbanList = dataParsed;
           this.indLoading = false;
-          this.verificationCode = '123422'
+          // this.verificationCode = '123422'
         },
           error => {
             this.indLoading = false;
