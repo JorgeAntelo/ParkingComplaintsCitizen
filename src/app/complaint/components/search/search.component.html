@@ -26,12 +26,12 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="container-fluid" style="width: 500px;">
+          <div class="container-fluid">
 
             <form [formGroup]="SearchForm">
-              <div class="form-group col-md-12 col-xs-12">
+              <div class="form-group col-md-8 col-xs-8" style="max-width: 600px;">
                 <mat-form-field class="example-full-width">
-                  <input type="text" matInput placeholder="Complaint No" formControlName="ComplaintNoFormControl" class="text-left" />
+                  <input type="text" matInput placeholder="Complaint No" formControlName="ComplaintNoFormControl" class="text-left"/>
                   <mat-icon matSuffix style="font-weight: 600">search</mat-icon>
                   <mat-error *ngIf="SearchForm.controls['ComplaintNoFormControl'].errors?.required && (SearchForm.controls['ComplaintNoFormControl'].dirty || SearchForm.controls['ComplaintNoFormControl'].touched)">
                     Complaint No is <strong>required</strong>
@@ -59,19 +59,19 @@
                 </button>
               </div> -->
             
-              <div class="form-group col-md-12 col-xs-12 martop10">
+              <div class="form-group col-md-4 col-xs-4 martop10">
                 <button type="submit" class="btn btn-blue1 btn-labeled" (click)="Search(SearchForm.value)" name="Search">
                   <span class="btn-label">
                     <i class="fa fa-search"></i>
-                  </span> Search with OTP
+                  </span> Search
                 </button>
               </div>
-              <div class="row" *ngIf="AbanList != null">
+              <div class="row data-row" *ngIf="AbanList != null">
                 <div class="data form-group col-md-12 col-xs-12 martop10">
                   <span class="data-item">Record Id: <strong>{{AbanList.RecordId}}</strong></span>
+                  <span class="data-item">Status: <strong>{{AbanList.Status}}</strong></span>
                   <span class="data-item">Complaint No: <strong>{{AbanList.ComplaintNo}}</strong></span>
                   <span class="data-item">Location: <strong>{{AbanList.Location}}</strong></span>
-                  <span class="data-item">Status: <strong>{{AbanList.Status}}</strong></span>
                   <span class="data-item">Request Date: <strong>{{AbanList.Date}}</strong></span>
                 </div>
               </div>
